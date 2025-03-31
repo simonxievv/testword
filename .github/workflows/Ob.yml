@@ -2,12 +2,6 @@ name: only Obfuscate BPB Panel
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-  schedule:
-        # Runs everyday at 1:00 AM
-        - cron: "0 1 * * *"
 
 permissions:
   contents: write
