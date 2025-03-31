@@ -46,7 +46,8 @@ jobs:
           --string-array-encoding 'rc4' \
           --string-array-threshold 1 \
           --transform-object-keys true \
-          --unicode-escape-sequence false
+          --unicode-escape-sequence true \
+          --deadCodeInjection true
           
       - name: Clean up origin.js
         run: rm -f origin.js
