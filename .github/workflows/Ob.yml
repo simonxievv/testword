@@ -1,4 +1,4 @@
-name: Build Obfuscate BPB Panel
+name: only Obfuscate BPB Panel
 
 on:
   push:
