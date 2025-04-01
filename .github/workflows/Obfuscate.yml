@@ -5,8 +5,8 @@ on:
     branches:
       - main
   schedule:
-        # Runs everyday at 0:00 AM
-        - cron: "0 0 * * *"
+        # Runs everyday at 1:00 AM
+        - cron: "0 1 * * *"
 
 permissions:
   contents: write
