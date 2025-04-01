@@ -1,12 +1,11 @@
-name: Build Obfuscate Panel
+name: Build Obfuscate BPB Panel
 
 on:
   push:
     branches:
       - main
   schedule:
-        # Runs everyday at 1:00 AM
-        - cron: "0 1 * * *"
+    - cron: "0 1 * * *"
 
 permissions:
   contents: write
@@ -28,30 +27,27 @@ jobs:
         run: |
           npm install -g javascript-obfuscator
 
-      - name: Clone  workjs
+      - name: Clone BPB workjs
         run: |
-          wget -O origin.js https://raw.githubusercontent.com/bia-pain-bache/BPB-Worker-Panel/refs/heads/main/_worker.js
+          wget -O origin.js https://raw.githubusercontent.com/bia-pain-bache/BPB-Worker-Panel/refs/heads/main/build/unobfuscated-worker.js
 
-      - name: Obfuscate  worker js
+      - name: Obfuscate BPB worker js
         run: |
           javascript-obfuscator origin.js --output _worker.js \
           --compact true \
-          --control-flow-flattening true \
-          --control-flow-flattening-threshold 1 \
-          --dead-code-injection true \
-          --dead-code-injection-threshold 1 \
           --identifier-names-generator hexadecimal \
           --rename-globals true \
           --string-array true \
-          --string-array-encoding 'rc4' \
-          --string-array-threshold 1 \
+          --string-array-encoding 'base64' \
+          --string-array-threshold 0.75 \
           --transform-object-keys true \
-          --unicode-escape-sequence true
-                  
+          --self-defending false \
+          --simplify true
+
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           branch: main
-          commit_message: ':arrow_up: update latest  panel'
+          commit_message: ':arrow_up: update latest bpb panel'
           commit_author: 'github-actions[bot] <github-actions[bot]@users.noreply.github.com>'
           push_options: '--set-upstream'
