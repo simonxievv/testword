@@ -1,4 +1,4 @@
-name: only Obfuscate BPB Panel
+name: only Obfuscate  Panel
 
 on:
   workflow_dispatch:
@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm install -g javascript-obfuscator
-      - name: Obfuscate BPB worker js
+      - name: Obfuscate  worker js
         run: |
           javascript-obfuscator origin.js --output _worker.js \
           --compact true \
@@ -38,7 +38,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           branch: main
-          commit_message: ':arrow_up: update latest bpb panel'
+          commit_message: ':arrow_up: update latest panel'
           commit_author: 'github-actions[bot] <github-actions[bot]@users.noreply.github.com>'
           push_options: '--set-upstream'
 
