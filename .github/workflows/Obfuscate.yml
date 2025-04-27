@@ -41,7 +41,7 @@ jobs:
           --rename-globals true \
           --string-array true \
           --string-array-encoding 'base64' \
-          --string-array-threshold 0.85 \
+          --string-array-threshold 0.75 \
           --transform-object-keys true \
           --self-defending false \
           --simplify true
